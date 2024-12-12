@@ -15,11 +15,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-public class Board extends JPanel implements ActionListener {
+public class GamePanel extends JPanel implements ActionListener {
 
-    private final int width_in_pixels = 300;
-    private final int height_in_pixels = 300;
-    private final int tile_size_in_pixels = 10;
+    public final int width_in_pixels = 300;
+    public final int height_in_pixels = 300;
+    public final int tile_size_in_pixels = 10;
     private final int maximum_snake_length = 900;
     private final int game_loop_duration_in_ms = 140;
 
@@ -41,12 +41,8 @@ public class Board extends JPanel implements ActionListener {
     private Image apple;
     private Image head;
 
-    public Board() {
-        
-        initBoard();
-    }
-    
-    private void initBoard() {
+    public GamePanel()
+    {
 
         addKeyListener(new TAdapter());
         setBackground(Color.black);
@@ -57,7 +53,8 @@ public class Board extends JPanel implements ActionListener {
         initGame();
     }
 
-    private void loadImages() {
+    private void loadImages()
+    {
 
         ImageIcon iid = new ImageIcon("src/resources/dot.png");
         ball = iid.getImage();
@@ -87,7 +84,8 @@ public class Board extends JPanel implements ActionListener {
     }
 
     @Override
-    public void paintComponent(Graphics g) {
+    public void paintComponent(Graphics g)
+    {
         super.paintComponent(g);
 
         doDrawing(g);
