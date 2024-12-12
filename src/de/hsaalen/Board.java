@@ -21,7 +21,7 @@ public class Board extends JPanel implements ActionListener {
     private final int height_in_pixels = 300;
     private final int tile_size_in_pixels = 10;
     private final int maximum_snake_length = 900;
-    private final int DELAY = 140;
+    private final int game_loop_duration_in_ms = 140;
 
     private final int x[] = new int[maximum_snake_length];
     private final int y[] = new int[maximum_snake_length];
@@ -80,7 +80,7 @@ public class Board extends JPanel implements ActionListener {
         
         locateApple();
 
-        timer = new Timer(DELAY, this);
+        timer = new Timer(game_loop_duration_in_ms, this);
         timer.start();
     }
 
