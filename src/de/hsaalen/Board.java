@@ -69,16 +69,18 @@ public class Board extends JPanel implements ActionListener {
         head = iih.getImage();
     }
 
-    private void initGame() {
+    private void initGame()
+    {
 
         dots = 3;
 
-        for (int z = 0; z < dots; z++) {
+        for (int z = 0; z < dots; z++)
+        {
             x[z] = 50 - z * 10;
             y[z] = 50;
         }
-        
-        locateApple();
+
+        place_apple_at_random_location();
 
         timer = new Timer(game_loop_duration_in_ms, this);
         timer.start();
@@ -129,7 +131,7 @@ public class Board extends JPanel implements ActionListener {
         if ((x[0] == apple_x) && (y[0] == apple_y)) {
 
             dots++;
-            locateApple();
+            place_apple_at_random_location();
         }
     }
 
@@ -196,7 +198,7 @@ public class Board extends JPanel implements ActionListener {
         return ( height_in_pixels / tile_size_in_pixels ) - 1;
     }
 
-    private void locateApple() {
+    private void place_apple_at_random_location() {
 
         int r = (int) (Math.random() * maximum_tile_index_x());
         apple_x = ((r * tile_size_in_pixels));
